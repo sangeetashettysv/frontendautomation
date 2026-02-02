@@ -21,8 +21,12 @@ public class DriverManager {
             switch (browser) {
                 case "chrome":
                     ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.addArguments("--start-maximized");
+                    chromeOptions.addArguments("--headless=new");
+                    chromeOptions.addArguments("--no-sandbox");
+                    chromeOptions.addArguments("--disable-dev-shm-usage");
+                    chromeOptions.addArguments("--window-size=1920,1080");
                     driver.set(new ChromeDriver(chromeOptions));
+                    driver.get().manage().window().maximize();
                     break;
 
                 case "firefox":

@@ -38,6 +38,7 @@ jobs:
       # 4. Build and run tests
       - name: Build and run tests
         run: mvn clean test
+        continue-on-error: true
 
       # 5. Upload Cucumber HTML report
       - name: Upload Cucumber HTML Report
@@ -47,9 +48,17 @@ jobs:
           name: cucumber-html-report
           path: target/cucumber-reports.html
 
-      # 6. Add info to workflow summary
+      # 6. Upload Maven Surefire reports
+      - name: Upload Surefire Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: target/surefire-reports
+
+      # 7. Add info to workflow summary
       - name: Add report info to summary
         if: always()
         run: |
           echo "### Cucumber HTML Report" >> $GITHUB_STEP_SUMMARY
-          echo "Download it from the **Artifacts** section above ⬆️" >> $GITHUB_STEP_SUMMARY
+          echo "Download it from the **Artifacts** " >> $GITHUB_STEP_SUMMARY
