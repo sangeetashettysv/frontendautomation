@@ -1,0 +1,55 @@
+name: Run Frontend Automation Tests
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Set up Java
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      # 3. Cache Maven packages
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # 4. Build and run tests
+      - name: Build and run tests
+        run: mvn clean test
+
+      # 5. Upload Cucumber HTML report
+      - name: Upload Cucumber HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-html-report
+          path: target/cucumber-reports.html
+
+      # 6. Add info to workflow summary
+      - name: Add report info to summary
+        if: always()
+        run: |
+          echo "### Cucumber HTML Report" >> $GITHUB_STEP_SUMMARY
+          echo "Download it from the **Artifacts** section above ⬆️" >> $GITHUB_STEP_SUMMARY
