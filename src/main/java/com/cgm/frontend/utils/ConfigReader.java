@@ -38,6 +38,12 @@ public class ConfigReader {
 
     // Get browser (default to Chrome)
     public static String getBrowser() {
-        return properties.getProperty("browser", "chrome");
+    // First check if a system property is set (for CI/CD or command line override)
+    String browser = System.getProperty("browser");
+    if (browser != null && !browser.isEmpty()) {
+        return browser.toLowerCase();
+    }
+    // fallback to value from config.properties
+    return properties.getProperty("browser", "chrome").toLowerCase();
     }
 }

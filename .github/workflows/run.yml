@@ -12,7 +12,10 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest   # Use macOS so Safari works
+    strategy:
+      matrix:
+        browser: [chrome, firefox, safari]
 
     steps:
       # 1. Checkout code
@@ -35,30 +38,31 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      # 4. Build and run tests
+      # 4. Build and run tests for each browser
       - name: Build and run tests
-        run: mvn clean test
+        run: mvn clean test -Dbrowser=${{ matrix.browser }}
         continue-on-error: true
 
       # 5. Upload Cucumber HTML report
       - name: Upload Cucumber HTML Report
-        if: always()
         uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: cucumber-html-report
+          name: cucumber-html-report-${{ matrix.browser }}
           path: target/cucumber-reports.html
 
-      # 6. Upload Maven Surefire reports
+      # 6. Upload Surefire reports
       - name: Upload Surefire Reports
-        if: always()
         uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: surefire-reports
+          name: surefire-reports-${{ matrix.browser }}
           path: target/surefire-reports
 
-      # 7. Add info to workflow summary
+      # 7. Add report info to workflow summary
       - name: Add report info to summary
         if: always()
         run: |
-          echo "### Cucumber HTML Report" >> $GITHUB_STEP_SUMMARY
-          echo "Download it from the **Artifacts** " >> $GITHUB_STEP_SUMMARY
+          echo "### Browser: ${{ matrix.browser }}" >> $GITHUB_STEP_SUMMARY
+          echo "Cucumber report artifact: cucumber-html-report-${{ matrix.browser }}" >> $GITHUB_STEP_SUMMARY
+          echo "Surefire reports artifact: surefire-reports-${{ matrix.browser }}" >> $GITHUB_STEP_SUMMARY
