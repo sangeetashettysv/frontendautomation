@@ -19,10 +19,10 @@ public class UsersListPage {
 
     // Open application
     public void openApplication() {
-    String env = ConfigReader.getEnvironment();
-    String url = ConfigReader.getEnvironmentUrl();
-    System.out.println("Opening application for environment: " + env + " | URL: " + url);
-    driver.get(url);
+        String env = ConfigReader.getEnvironment();
+        String url = ConfigReader.getEnvironmentUrl();
+        System.out.println("Opening application for environment: " + env + " | URL: " + url);
+        driver.get(url);
     }
 
     // Get page heading text
