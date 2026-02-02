@@ -1,0 +1,22 @@
+# Maven target
+target/
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# WebDriver binaries (optional, if downloaded locally)
+chromedriver
+geckodriver
+
+# Test reports
+cucumber-reports.html
