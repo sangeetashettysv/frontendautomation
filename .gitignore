@@ -19,4 +19,4 @@ chromedriver
 geckodriver
 
 # Test reports
-cucumber-reports.html
+target/

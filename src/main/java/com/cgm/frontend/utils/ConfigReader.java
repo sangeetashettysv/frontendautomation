@@ -33,6 +33,7 @@ public class ConfigReader {
         if (url == null || url.isEmpty()) {
             throw new RuntimeException("Base URL not specified for environment: " + env);
         }
+        System.out.println("Using environment: " + env + " | URL: " + url);
         return url;
     }
 
@@ -41,9 +42,9 @@ public class ConfigReader {
     // First check if a system property is set (for CI/CD or command line override)
     String browser = System.getProperty("browser");
     if (browser != null && !browser.isEmpty()) {
-        return browser.toLowerCase();
+        return browser.toLowerCase().trim();
     }
     // fallback to value from config.properties
-    return properties.getProperty("browser", "chrome").toLowerCase();
+    return properties.getProperty("browser", "chrome").toLowerCase().trim();
     }
 }
