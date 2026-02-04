@@ -63,4 +63,15 @@ public class UsersListPage extends BasePage {
         waitForVisibility(deleteConfirmationDialog);
         return driver.findElement(deleteConfirmationDialog).isDisplayed();
     }
+
+    // Verify user is present in the users table by email
+    public boolean isUserPresentInList(String email) {
+        By userEmailCell = By.xpath("//td[text()='" + email + "']");
+        try {
+            waitForVisibility(userEmailCell);
+            return driver.findElement(userEmailCell).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

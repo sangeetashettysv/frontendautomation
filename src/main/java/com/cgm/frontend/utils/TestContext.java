@@ -1,17 +1,17 @@
 package com.cgm.frontend.utils;
 
 import org.openqa.selenium.WebDriver;
+
 import com.cgm.frontend.pages.UsersListPage;
+import com.cgm.frontend.pages.AddUserPage;
 
 public class TestContext {
 
-    // WebDriver for the current scenario
     private WebDriver driver;
-
-    // Shared UsersListPage object for the current scenario
     private UsersListPage usersListPage;
+    private AddUserPage addUserPage;
 
-    // ----- WebDriver getters and setters -----
+    // ---------- Driver ----------
     public WebDriver getDriver() {
         return driver;
     }
@@ -20,12 +20,31 @@ public class TestContext {
         this.driver = driver;
     }
 
-    // ----- UsersListPage getters and setters -----
+    // ---------- Users List Page ----------
     public UsersListPage getUsersListPage() {
         return usersListPage;
     }
 
     public void setUsersListPage(UsersListPage usersListPage) {
         this.usersListPage = usersListPage;
+    }
+
+    // ---------- Add User Page ----------
+    public AddUserPage getAddUserPage() {
+        return addUserPage;
+    }
+
+    public void setAddUserPage(AddUserPage addUserPage) {
+        this.addUserPage = addUserPage;
+    }
+
+    private String createdUserEmail;
+
+    public String getCreatedUserEmail() {
+        return createdUserEmail;
+    }
+
+    public void setCreatedUserEmail(String createdUserEmail) {
+        this.createdUserEmail = createdUserEmail;
     }
 }
