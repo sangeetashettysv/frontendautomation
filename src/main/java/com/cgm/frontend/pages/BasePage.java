@@ -18,7 +18,13 @@ public class BasePage {
 
     // Wait until element is visible
     protected void waitForVisibility(By locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
+    try {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
             .until(ExpectedConditions.visibilityOfElementLocated(locator));
+    } catch (Exception e) {
+        System.out.println("Element not found: " + locator.toString());
+        throw new RuntimeException("Element not found after waiting: " + locator.toString());
     }
+}
+
 }

@@ -8,13 +8,13 @@ import com.cgm.frontend.utils.TestContext;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 
-public class UsersDeleteSteps {
+public class UsersAddSteps {
 
     private TestContext context;
     private UsersListPage usersListPage;
 
     // Constructor injection
-    public UsersDeleteSteps(TestContext context) {
+    public UsersAddSteps(TestContext context) {
         this.context = context;
 
         // Get the shared UsersListPage from TestContext if already initialized
@@ -23,22 +23,22 @@ public class UsersDeleteSteps {
         }
     }
 
-    @When("user clicks the delete action for a user")
-    public void user_clicks_the_delete_action_for_a_user() {
+    @When("user clicks the Add User action")
+    public void user_clicks_the_add_user_action() {
         // Ensure the page object is available
         if (this.usersListPage == null) {
             this.usersListPage = context.getUsersListPage();
         }
-        usersListPage.clickDeleteForFirstUser();
+        usersListPage.clickAddUser();
     }
 
-    @Then("a delete confirmation dialog should be displayed")
-    public void a_delete_confirmation_dialog_should_be_displayed() {
+    @Then("user should see the Add User form")
+    public void user_should_see_the_add_user_form() {
         // Ensure the page object is available
         if (this.usersListPage == null) {
             this.usersListPage = context.getUsersListPage();
         }
-        assertTrue(usersListPage.isDeleteConfirmationDialogDisplayed(),
-                "Expected delete confirmation dialog to be displayed");
+        assertTrue(usersListPage.isAddUserFormDisplayed(),
+                "Expected Add User form to be displayed");
     }
 }

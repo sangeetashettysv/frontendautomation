@@ -2,42 +2,35 @@ package com.cgm.frontend.stepDefinitions;
 
 import static org.testng.Assert.assertEquals;
 
-import org.openqa.selenium.WebDriver;
-
 import com.cgm.frontend.pages.UsersListPage;
-import com.cgm.frontend.utils.DriverManager;
+import com.cgm.frontend.utils.TestContext;
 
-import io.cucumber.java.After;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class UsersListSteps {
 
-    private WebDriver driver;
+    private TestContext context;
     private UsersListPage usersListPage;
 
-    // --- Step: open application on a given browser ---
-    @Given("user opens the application on {string}")
-    public void user_opens_the_application_on(String browser) {
-        // Initialize WebDriver for the given browser
-        driver = DriverManager.getDriver(browser);
+    // Constructor injection of TestContext
+    public UsersListSteps(TestContext context) {
+        this.context = context;
 
-        // Initialize Page Object and open the application
-        usersListPage = new UsersListPage(driver);
-        usersListPage.openApplication();
+        // Initialize UsersListPage only if not already done
+        if (context.getUsersListPage() != null) {
+            this.usersListPage = context.getUsersListPage();
+        }
     }
 
-    // --- Step: verify Users List page heading ---
     @Then("user should see the users list page")
     public void user_should_see_the_users_list_page() {
+        // Get the shared UsersListPage from TestContext
+        if (this.usersListPage == null) {
+            this.usersListPage = context.getUsersListPage();
+        }
+
         String headingText = usersListPage.getPageHeadingText();
         assertEquals(headingText, "User Management",
-                     "Users List page heading is not displayed correctly");
-    }
-
-    // --- Cleanup: quit driver after scenario ---
-    @After
-    public void tearDown() {
-        DriverManager.quitDriver();
+                "Users List page heading is not displayed correctly");
     }
 }

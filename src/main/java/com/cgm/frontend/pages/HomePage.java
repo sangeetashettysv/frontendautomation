@@ -1,15 +1,16 @@
 package com.cgm.frontend.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
 import com.cgm.frontend.utils.ConfigReader;
 
-public class HomePage {
-
-    private WebDriver driver;
+public class HomePage extends BasePage{
 
     // Constructor
     public HomePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver); // pass driver to BasePage
+        PageFactory.initElements(driver, this);
     }
 
     // Open application
