@@ -1,8 +1,12 @@
 package com.cgm.frontend.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddUserPage extends BasePage {
 
@@ -25,6 +29,9 @@ public class AddUserPage extends BasePage {
     private By emailError = By.cssSelector("input[name='email'] + .invalid-feedback");
     private By phoneError = By.cssSelector("input[name='phone'] + .invalid-feedback");
     private By websiteError = By.cssSelector("input[name='website'] + .invalid-feedback");
+    
+    // Success message shown after adding user
+    private By successMessage = By.cssSelector("div[role=\"status\"][aria-live=\"polite\"]");
 
     // --- Methods ---
 
@@ -97,6 +104,27 @@ public class AddUserPage extends BasePage {
             return false;
         }
     }
+
+    public boolean wasSuccessToastDisplayed() {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(3))
+                    .until(ExpectedConditions.presenceOfElementLocated(successMessage));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public String getSuccessToastMessage() {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(3))
+                    .until(ExpectedConditions.presenceOfElementLocated(successMessage));
+            return driver.findElement(successMessage).getText().trim();
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
 }
 
    

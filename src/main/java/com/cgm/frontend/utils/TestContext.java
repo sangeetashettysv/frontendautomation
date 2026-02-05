@@ -8,9 +8,14 @@ import com.cgm.frontend.pages.AddUserPage;
 public class TestContext {
 
     private WebDriver driver;
+
+    // Page Objects
     private UsersListPage usersListPage;
     private AddUserPage addUserPage;
 
+    // Test Data
+    private String addUserSuccessMessage;
+    
     // ---------- Driver ----------
     public WebDriver getDriver() {
         return driver;
@@ -46,5 +51,22 @@ public class TestContext {
 
     public void setCreatedUserEmail(String createdUserEmail) {
         this.createdUserEmail = createdUserEmail;
+    }
+
+    // ---------- Shared Data ----------
+    public String getAddUserSuccessMessage() {
+        return addUserSuccessMessage;
+    }
+
+    public void setLAddUserSuccessMessage(String addUserSuccessMessage) {
+        this.addUserSuccessMessage = addUserSuccessMessage;
+    }
+
+    // --------- Cleanup ---------- 
+
+    public void reset() {
+        usersListPage = null;
+        addUserPage = null;
+        addUserSuccessMessage = null;
     }
 }

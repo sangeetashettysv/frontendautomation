@@ -55,7 +55,8 @@ Feature: Add user to Users List
   When user clicks the Add User action
   And user enters valid user details
   And user submits the Add User form
-  Then the newly added user should appear in the users list
+  Then a success message should be shown to the user 
+  And the newly added user should appear in the users list
 
   Examples:
     | browser |

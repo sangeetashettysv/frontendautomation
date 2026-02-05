@@ -1,5 +1,6 @@
 package com.cgm.frontend.stepDefinitions;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
@@ -63,17 +64,9 @@ public class UsersAddSteps {
 
     @When("user submits the Add User form")
     public void user_submits_the_add_user_form() {
+        assertTrue(addUserPage.isAddButtonEnabled(),
+                "Add button should be enabled when all fields are valid");
         addUserPage.clickAddButton();
-    }
-
-    @Then("the newly added user should appear in the users list")
-    public void the_newly_added_user_should_appear_in_the_users_list() {
-        String email = context.getCreatedUserEmail();
-
-        assertTrue(
-            usersListPage.isUserPresentInList(email),
-            "Expected newly added user to appear in the users list"
-        );
     }
 
     // ---------- VERIFICATION STEPS ----------
@@ -115,4 +108,28 @@ public class UsersAddSteps {
         assertTrue(addUserPage.isAddButtonEnabled(),
                 "INTENTIONAL FAILURE: Add button should NOT be enabled");
     }
+
+    @Then("the newly added user should appear in the users list")
+    public void the_newly_added_user_should_appear_in_the_users_list() {
+        String email = context.getCreatedUserEmail();
+
+        assertTrue(
+            usersListPage.isUserPresentInList(email),
+            "Expected newly added user to appear in the users list"
+        );
+    }
+
+    @Then("a success message should be shown to the user")
+    public void a_success_message_should_be_shown_to_the_user() {
+        assertTrue(addUserPage.wasSuccessToastDisplayed(),
+                "Expected success toast to appear after adding user");
+
+        // Optional strict assertion (can be flaky by design)
+        assertEquals(
+                addUserPage.getSuccessToastMessage(),
+                "User added successfully",
+                "Success message text mismatch"
+        );
+    }
+
 }
