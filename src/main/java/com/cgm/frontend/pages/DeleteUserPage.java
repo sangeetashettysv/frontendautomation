@@ -63,6 +63,26 @@ public class DeleteUserPage extends BasePage {
         return driver.findElement(modalText).getText();
     }
 
+    // Wait until the modal dialog disappears
+    public void waitForModalToClose() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(modalDialog));
+    }
+
+    // Wait until a specific user row disappears from the table
+    public void waitForUserToBeDeleted(String email) {
+        By userRow = By.xpath("//tr[td[3]//a[text()='" + email + "']]");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(userRow));
+    }
+
+    // Wait until delete success toast is visible
+    public void waitForDeleteSuccessToast() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(deleteSuccessToast));
+    }
+
+
     // Check if success toast appeared
     public boolean wasDeleteSuccessToastDisplayed() {
         try {

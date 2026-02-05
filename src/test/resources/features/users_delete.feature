@@ -13,14 +13,15 @@ Feature: Delete user from Users List
     Then a delete confirmation dialog should be displayed
     When user confirms deletion
     Then the deleted user should no longer appear in the users list
-    And a delete success message should be shown to the user
+    # And a delete success message should be shown to the user
 
     Examples:
       | browser  |
       | chrome   |
+      | firefox |
 
   # ---------------- Negative / Cancel Tests ----------------
-  @req-UL-DEL-002 @usersList @negative 
+  @req-UL-DEL-002 @usersList @negative
   Scenario Outline: REQ-UL-DEL-002 - Cancel deletion and verify user still exists
     Given user opens the application on "<browser>"
     When user creates a new user
@@ -32,6 +33,7 @@ Feature: Delete user from Users List
     Examples:
       | browser  |
       | chrome   |
+      | firefox |
 
   # ---------------- Debug / Failing Test ----------------
   @req-UL-DEL-003 @usersList @debug

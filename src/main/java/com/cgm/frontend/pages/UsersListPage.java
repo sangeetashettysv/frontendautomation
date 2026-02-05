@@ -1,8 +1,12 @@
 package com.cgm.frontend.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.cgm.frontend.utils.ConfigReader;
 
@@ -66,7 +70,6 @@ public class UsersListPage extends BasePage {
 
     // Verify user is present in the users table by email
     public boolean isUserPresentInList(String email) {
-        String a = "b";
        // By userEmailCell = By.cssSelector("table tbody tr:last-child td:nth-child(3) a");
         By userEmailCell = By.xpath("//tr[td[3]//a[text()='" + email + "']]/td[3]/a");
         try {
@@ -79,11 +82,7 @@ public class UsersListPage extends BasePage {
 
     // Click delete button for a specific user by email
     public void clickDeleteForUserByEmail(String email) {
-        By deleteButtonForUser = 
-        // By.xpath("//td[text()='" + email + "']/following-sibling::td//a[@data-bs-target='#confirmDeleteModal']");
-       
-       // Click the Delete button for the last row
-        By.cssSelector("table tbody tr:last-child td:last-child a[data-bs-toggle='modal']");
+        By deleteButtonForUser = By.xpath("//tr[td[3]//a[text()='" + email + "']]//a[@data-bs-toggle='modal']");
         waitForVisibility(deleteButtonForUser);
         driver.findElement(deleteButtonForUser).click();
     }

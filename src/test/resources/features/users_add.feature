@@ -5,7 +5,7 @@ Feature: Add user to Users List
   I want to add a new user
   So that new users can be managed in the system
 
-  @sanity @regression @req-UL-ADD-001 @ul
+  @sanity @regression @req-UL-ADD-001
   Scenario Outline: REQ-UL-ADD-001 - Add User form is shown
     Given user opens the application on "<browser>"
     When user clicks the Add User action
@@ -16,7 +16,7 @@ Feature: Add user to Users List
       | chrome  |
       | firefox |
 
-  @regression @req-UL-ADD-002 @ul
+  @regression @req-UL-ADD-002
   Scenario Outline: REQ-UL-ADD-002 - Add button enabled for valid data
     Given user opens the application on "<browser>"
     When user clicks the Add User action
@@ -28,7 +28,7 @@ Feature: Add user to Users List
       | chrome  |
       | firefox |
 
-  @regression @negative @req-UL-ADD-003 @ul
+  @regression @negative @req-UL-ADD-003
   Scenario Outline: REQ-UL-ADD-003 - Invalid email validation
     Given user opens the application on "<browser>"
     When user clicks the Add User action
@@ -41,7 +41,7 @@ Feature: Add user to Users List
       | chrome  |
       | firefox |
 
-  @debug @negative @req-UL-ADD-004 @ul
+  @debug @negative @req-UL-ADD-004
   Scenario Outline: REQ-UL-ADD-004 - Intentional failure for debugging
     Given user opens the application on "<browser>"
     When user clicks the Add User action
@@ -53,7 +53,7 @@ Feature: Add user to Users List
       | chrome  |
       | firefox |
 
-  @regression @req-UL-ADD-005 @ul
+  @regression @req-UL-ADD-005
   Scenario Outline: REQ-UL-ADD-005 - Newly added user is visible in users list
   Given user opens the application on "<browser>"
   When user clicks the Add User action

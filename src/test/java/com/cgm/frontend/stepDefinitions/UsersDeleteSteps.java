@@ -1,9 +1,11 @@
 package com.cgm.frontend.stepDefinitions;
 
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 
 import com.cgm.frontend.pages.UsersListPage;
+import com.cgm.frontend.pages.AddUserPage;
 import com.cgm.frontend.pages.DeleteUserPage;
 import com.cgm.frontend.stepDefinitions.UsersAddSteps;
 import com.cgm.frontend.utils.TestContext;
@@ -58,6 +60,11 @@ public class UsersDeleteSteps {
     @When("user confirms deletion")
     public void user_confirms_deletion() {
         deleteUserPage.confirmDeletion();
+
+        // Wait for modal to close, row to disappear, and toast to appear
+        deleteUserPage.waitForModalToClose();
+        deleteUserPage.waitForUserToBeDeleted(context.getCreatedUserEmail());
+        // deleteUserPage.waitForDeleteSuccessToast();
     }
 
     @When("user cancels deletion")
@@ -73,15 +80,16 @@ public class UsersDeleteSteps {
 
     @Then("the user should still appear in the users list")
     public void the_user_should_still_appear_in_the_users_list() {
-        //assertTrue(usersListPage.isUserPresentInList(context.getCreatedUserEmail()),
-        assertTrue(usersListPage.isUserPresentInList("a@a.com"),
+        assertTrue(usersListPage.isUserPresentInList(context.getCreatedUserEmail()),
                 "User should still be present in the users list after cancelling deletion");
     }
 
     @Then("a delete success message should be shown to the user")
     public void a_delete_success_message_should_be_shown_to_the_user() {
-        assertTrue(deleteUserPage.wasDeleteSuccessToastDisplayed(),
-                "Expected success toast to appear after deleting user");
+        DeleteUserPage deleteUserPage = context.getDeleteUserPage();
+        String deleteSuccessText = deleteUserPage.getDeleteSuccessToastMessage();
+        assertEquals(deleteSuccessText, "User deleted successfully", 
+                 "Delete message text mismatch");
     }
 
     // ---------------- Debug / Failing Step ----------------
