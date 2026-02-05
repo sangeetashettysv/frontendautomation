@@ -1,0 +1,204 @@
+<html>
+<head>
+<title>TestNG:  Surefire test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Surefire test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>14/3/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Feb 05 22:08:51 UTC 2026</td>
+</tr>
+<tr><td>Total time:</td><td>155 seconds (155037 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-DEL-003 - Intentional failure to test debug methods", "Delete user from Users List"</td>
+<td><div><pre>java.lang.AssertionError: INTENTIONAL FAILURE: This assertion is expected to fail expected [true] but found [false]
+	at com.cgm.frontend.stepDefinitions.UsersDeleteSteps.assert_incorrectly_user_still_appears_in_users_list(UsersDeleteSteps.java:100)
+	at ✽.assert incorrectly that the user still appears in the users list(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_delete.feature:46)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1318272241", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1318272241'><pre>java.lang.AssertionError: INTENTIONAL FAILURE: This assertion is expected to fail expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.cgm.frontend.stepDefinitions.UsersDeleteSteps.assert_incorrectly_user_still_appears_in_users_list(UsersDeleteSteps.java:100)
+	at ✽.assert incorrectly that the user still appears in the users list(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_delete.feature:46)
+</pre></div></td>
+<td>14</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-ADD-004 - Intentional failure for debugging", "Add user to Users List"</td>
+<td><div><pre>java.lang.AssertionError: INTENTIONAL FAILURE: Add button should NOT be enabled expected [true] but found [false]
+	at com.cgm.frontend.stepDefinitions.UsersAddSteps.add_button_should_still_be_enabled(UsersAddSteps.java:108)
+	at ✽.Add button should still be enabled(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_add.feature:49)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace479769835", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace479769835'><pre>java.lang.AssertionError: INTENTIONAL FAILURE: Add button should NOT be enabled expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.cgm.frontend.stepDefinitions.UsersAddSteps.add_button_should_still_be_enabled(UsersAddSteps.java:108)
+	at ✽.Add button should still be enabled(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_add.feature:49)
+</pre></div></td>
+<td>9</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-ADD-004 - Intentional failure for debugging", "Add user to Users List"</td>
+<td><div><pre>java.lang.AssertionError: INTENTIONAL FAILURE: Add button should NOT be enabled expected [true] but found [false]
+	at com.cgm.frontend.stepDefinitions.UsersAddSteps.add_button_should_still_be_enabled(UsersAddSteps.java:108)
+	at ✽.Add button should still be enabled(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_add.feature:49)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1594424832", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1594424832'><pre>java.lang.AssertionError: INTENTIONAL FAILURE: Add button should NOT be enabled expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.cgm.frontend.stepDefinitions.UsersAddSteps.add_button_should_still_be_enabled(UsersAddSteps.java:108)
+	at ✽.Add button should still be enabled(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_add.feature:49)
+</pre></div></td>
+<td>3</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-ADD-001 - Add User form is shown", "Add user to Users List"</td>
+<td></td>
+<td>4</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-ADD-001 - Add User form is shown", "Add user to Users List"</td>
+<td></td>
+<td>11</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-DEL-001 - Delete newly created user successfully", "Delete user from Users List"</td>
+<td></td>
+<td>20</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-DEL-002 - Cancel deletion and verify user still exists", "Delete user from Users List"</td>
+<td></td>
+<td>8</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-ADD-005 - Newly added user is visible in users list", "Add user to Users List"</td>
+<td></td>
+<td>2</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-DEL-002 - Cancel deletion and verify user still exists", "Delete user from Users List"</td>
+<td></td>
+<td>4</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-LIST-001 - Verify Users List page loads correctly", "Users List Page"</td>
+<td></td>
+<td>6</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-LIST-001 - Verify Users List page loads correctly", "Users List Page"</td>
+<td></td>
+<td>11</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-DEL-001 - Delete newly created user successfully", "Delete user from Users List"</td>
+<td></td>
+<td>15</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-ADD-005 - Newly added user is visible in users list", "Add user to Users List"</td>
+<td></td>
+<td>12</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-ADD-002 - Add button enabled for valid data", "Add user to Users List"</td>
+<td></td>
+<td>3</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-ADD-002 - Add button enabled for valid data", "Add user to Users List"</td>
+<td></td>
+<td>10</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-ADD-003 - Invalid email validation", "Add user to Users List"</td>
+<td></td>
+<td>2</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+<tr>
+<td title='com.cgm.frontend.runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: com.cgm.frontend.runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "REQ-UL-ADD-003 - Invalid email validation", "Add user to Users List"</td>
+<td></td>
+<td>10</td>
+<td>com.cgm.frontend.runner.TestRunner@12d4bf7e</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.cgm.frontend.runner.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 17, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 160.3 s <<< FAILURE! -- in com.cgm.frontend.runner.TestRunner
+com.cgm.frontend.runner.TestRunner.runScenario["REQ-UL-ADD-004 - Intentional failure for debugging", "Add user to Users List"](9) -- Time elapsed: 3.707 s <<< FAILURE!
+java.lang.AssertionError: INTENTIONAL FAILURE: Add button should NOT be enabled expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.cgm.frontend.stepDefinitions.UsersAddSteps.add_button_should_still_be_enabled(UsersAddSteps.java:108)
+	at ✽.Add button should still be enabled(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_add.feature:49)
+
+com.cgm.frontend.runner.TestRunner.runScenario["REQ-UL-ADD-004 - Intentional failure for debugging", "Add user to Users List"](10) -- Time elapsed: 9.751 s <<< FAILURE!
+java.lang.AssertionError: INTENTIONAL FAILURE: Add button should NOT be enabled expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.cgm.frontend.stepDefinitions.UsersAddSteps.add_button_should_still_be_enabled(UsersAddSteps.java:108)
+	at ✽.Add button should still be enabled(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_add.feature:49)
+
+com.cgm.frontend.runner.TestRunner.runScenario["REQ-UL-DEL-003 - Intentional failure to test debug methods", "Delete user from Users List"](17) -- Time elapsed: 14.90 s <<< FAILURE!
+java.lang.AssertionError: INTENTIONAL FAILURE: This assertion is expected to fail expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at com.cgm.frontend.stepDefinitions.UsersDeleteSteps.assert_incorrectly_user_still_appears_in_users_list(UsersDeleteSteps.java:100)
+	at ✽.assert incorrectly that the user still appears in the users list(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_delete.feature:46)
+
