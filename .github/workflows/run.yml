@@ -12,24 +12,24 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest   # Use macOS so Safari works
+    runs-on: macos-latest   # Safari requires macOS
     strategy:
       matrix:
         browser: [chrome, firefox, safari]
 
     steps:
-      # 1. Checkout code
+      # 1️⃣ Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. Set up Java
+      # 2️⃣ Set up Java
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
           distribution: temurin
           java-version: 17
 
-      # 3. Cache Maven packages
+      # 3️⃣ Cache Maven packages
       - name: Cache Maven packages
         uses: actions/cache@v3
         with:
@@ -38,12 +38,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      # 4. Build and run tests for each browser
+      # 4️⃣ Build and run tests
       - name: Build and run tests
         run: mvn clean test -Dbrowser=${{ matrix.browser }}
         continue-on-error: true
 
-      # 5. Upload Cucumber HTML report
+      # 5️⃣ Upload Cucumber HTML report artifact
       - name: Upload Cucumber HTML Report
         uses: actions/upload-artifact@v4
         if: always()
@@ -51,7 +51,7 @@ jobs:
           name: cucumber-html-report-${{ matrix.browser }}
           path: target/cucumber-reports.html
 
-      # 6. Upload Surefire reports
+      # 6️⃣ Upload Surefire reports artifact
       - name: Upload Surefire Reports
         uses: actions/upload-artifact@v4
         if: always()
@@ -59,10 +59,21 @@ jobs:
           name: surefire-reports-${{ matrix.browser }}
           path: target/surefire-reports
 
-      # 7. Add report info to workflow summary
+      # 7️⃣ Deploy HTML report to GitHub Pages
+      - name: Deploy HTML report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: target
+          publish_branch: gh-pages
+          destination_dir: cucumber-reports-${{ matrix.browser }}
+
+      # 8️⃣ Add clickable links to workflow summary
       - name: Add report info to summary
         if: always()
         run: |
+          REPORT_URL="https://${{ github.repository_owner }}.github.io/${{ github.repository }}/cucumber-reports-${{ matrix.browser }}/cucumber-reports.html"
           echo "### Browser: ${{ matrix.browser }}" >> $GITHUB_STEP_SUMMARY
-          echo "Cucumber report artifact: cucumber-html-report-${{ matrix.browser }}" >> $GITHUB_STEP_SUMMARY
+          echo "[Cucumber report]($REPORT_URL)" >> $GITHUB_STEP_SUMMARY
           echo "Surefire reports artifact: surefire-reports-${{ matrix.browser }}" >> $GITHUB_STEP_SUMMARY
