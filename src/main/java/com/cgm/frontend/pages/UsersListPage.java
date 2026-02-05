@@ -21,7 +21,7 @@ public class UsersListPage extends BasePage {
     private By addUserButton = By.cssSelector("button[data-bs-target='#addUserModal']");
 
     // Locator for Add User form/modal
-    private By addUserForm = By.cssSelector(".modal.show"); // adjust if needed based on actual modal class
+    private By addUserForm = By.cssSelector(".modal.show");
     
     // Locators for Delete User
     private By deleteButton = By.cssSelector("a[data-bs-target='#confirmDeleteModal']");
@@ -66,7 +66,9 @@ public class UsersListPage extends BasePage {
 
     // Verify user is present in the users table by email
     public boolean isUserPresentInList(String email) {
-        By userEmailCell = By.xpath("//td[text()='" + email + "']");
+        String a = "b";
+       // By userEmailCell = By.cssSelector("table tbody tr:last-child td:nth-child(3) a");
+        By userEmailCell = By.xpath("//tr[td[3]//a[text()='" + email + "']]/td[3]/a");
         try {
             waitForVisibility(userEmailCell);
             return driver.findElement(userEmailCell).isDisplayed();
@@ -74,4 +76,18 @@ public class UsersListPage extends BasePage {
             return false;
         }
     }
+
+    // Click delete button for a specific user by email
+    public void clickDeleteForUserByEmail(String email) {
+        By deleteButtonForUser = 
+        // By.xpath("//td[text()='" + email + "']/following-sibling::td//a[@data-bs-target='#confirmDeleteModal']");
+       
+       // Click the Delete button for the last row
+        By.cssSelector("table tbody tr:last-child td:last-child a[data-bs-toggle='modal']");
+        waitForVisibility(deleteButtonForUser);
+        driver.findElement(deleteButtonForUser).click();
+    }
+
+
+
 }

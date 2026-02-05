@@ -5,7 +5,7 @@ Feature: Add user to Users List
   I want to add a new user
   So that new users can be managed in the system
 
-  @sanity @regression @req-UL-ADD-001
+  @sanity @regression @req-UL-ADD-001 @ul
   Scenario Outline: REQ-UL-ADD-001 - Add User form is shown
     Given user opens the application on "<browser>"
     When user clicks the Add User action
@@ -14,8 +14,9 @@ Feature: Add user to Users List
     Examples:
       | browser |
       | chrome  |
+      | firefox |
 
-  @regression @req-UL-ADD-002
+  @regression @req-UL-ADD-002 @ul
   Scenario Outline: REQ-UL-ADD-002 - Add button enabled for valid data
     Given user opens the application on "<browser>"
     When user clicks the Add User action
@@ -25,8 +26,9 @@ Feature: Add user to Users List
     Examples:
       | browser |
       | chrome  |
+      | firefox |
 
-  @regression @negative @req-UL-ADD-003
+  @regression @negative @req-UL-ADD-003 @ul
   Scenario Outline: REQ-UL-ADD-003 - Invalid email validation
     Given user opens the application on "<browser>"
     When user clicks the Add User action
@@ -37,8 +39,9 @@ Feature: Add user to Users List
     Examples:
       | browser |
       | chrome  |
+      | firefox |
 
-  @debug @negative @req-UL-ADD-004
+  @debug @negative @req-UL-ADD-004 @ul
   Scenario Outline: REQ-UL-ADD-004 - Intentional failure for debugging
     Given user opens the application on "<browser>"
     When user clicks the Add User action
@@ -48,16 +51,18 @@ Feature: Add user to Users List
     Examples:
       | browser |
       | chrome  |
+      | firefox |
 
-  @regression @req-UL-ADD-005
+  @regression @req-UL-ADD-005 @ul
   Scenario Outline: REQ-UL-ADD-005 - Newly added user is visible in users list
   Given user opens the application on "<browser>"
   When user clicks the Add User action
   And user enters valid user details
   And user submits the Add User form
-  Then a success message should be shown to the user 
+  Then a success message should be shown to the user
   And the newly added user should appear in the users list
 
   Examples:
     | browser |
     | chrome  |
+    | firefox |

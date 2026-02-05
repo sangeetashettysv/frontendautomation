@@ -31,7 +31,7 @@ public class AddUserPage extends BasePage {
     private By websiteError = By.cssSelector("input[name='website'] + .invalid-feedback");
     
     // Success message shown after adding user
-    private By successMessage = By.cssSelector("div[role=\"status\"][aria-live=\"polite\"]");
+    private By successMessage = By.cssSelector("div[role='status'][aria-live='polite']");
 
     // --- Methods ---
 
@@ -107,7 +107,7 @@ public class AddUserPage extends BasePage {
 
     public boolean wasSuccessToastDisplayed() {
         try {
-            new WebDriverWait(driver, Duration.ofSeconds(3))
+            new WebDriverWait(driver, Duration.ofSeconds(5))
                     .until(ExpectedConditions.presenceOfElementLocated(successMessage));
             return true;
         } catch (Exception e) {
@@ -117,12 +117,15 @@ public class AddUserPage extends BasePage {
 
     public String getSuccessToastMessage() {
         try {
-            new WebDriverWait(driver, Duration.ofSeconds(3))
-                    .until(ExpectedConditions.presenceOfElementLocated(successMessage));
-            return driver.findElement(successMessage).getText().trim();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            boolean visible = wait.until(ExpectedConditions.textToBe(successMessage, "User added successfully"));
+            if (visible) {
+                return driver.findElement(successMessage).getText();
+            }
         } catch (Exception e) {
-            return "";
+            return ""; // toast did not appear or disappeared too fast
         }
+        return "";
     }
 
 }

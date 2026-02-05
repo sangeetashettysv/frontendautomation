@@ -29,7 +29,6 @@ public class DriverManager {
         switch (browser.toLowerCase()) {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-                // chromeOptions.addArguments("--headless=new");
                 chromeOptions.addArguments("--no-sandbox");
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--disable-gpu");
@@ -39,7 +38,6 @@ public class DriverManager {
 
             case "firefox":
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                //firefoxOptions.addArguments("--headless");
                 firefoxOptions.addArguments("--no-sandbox");
                 firefoxOptions.addArguments("--disable-dev-shm-usage");
                 firefoxOptions.addArguments("--disable-gpu");

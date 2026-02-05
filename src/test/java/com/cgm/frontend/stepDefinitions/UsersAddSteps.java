@@ -121,15 +121,20 @@ public class UsersAddSteps {
 
     @Then("a success message should be shown to the user")
     public void a_success_message_should_be_shown_to_the_user() {
-        assertTrue(addUserPage.wasSuccessToastDisplayed(),
-                "Expected success toast to appear after adding user");
+        // assertTrue(addUserPage.wasSuccessToastDisplayed(),
+        //         "Expected success toast to appear after adding user");
 
-        // Optional strict assertion (can be flaky by design)
-        assertEquals(
-                addUserPage.getSuccessToastMessage(),
-                "User added successfully",
-                "Success message text mismatch"
-        );
+        // // Optional strict assertion (can be flaky by design)
+        // assertEquals(
+        //         addUserPage.getSuccessToastMessage(),
+        //         "User added successfully",
+        //         "Success message text mismatch"
+        // );
+
+        AddUserPage addUserPage = context.getAddUserPage();
+        String toastText = addUserPage.getSuccessToastMessage();
+        assertEquals(toastText, "User added successfully", 
+                 "Success message text mismatch");
     }
 
 }

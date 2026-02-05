@@ -1,15 +1,19 @@
 package com.cgm.frontend.stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
+
 import com.cgm.frontend.pages.UsersListPage;
+import com.cgm.frontend.pages.DeleteUserPage;
 import com.cgm.frontend.utils.DriverManager;
 import com.cgm.frontend.utils.TestContext;
+
 import io.cucumber.java.en.Given;
 
 public class CommonSteps {
 
     private TestContext context;
     private UsersListPage usersListPage;
+    private DeleteUserPage deleteUserPage;
 
     public CommonSteps(TestContext context) {
         this.context = context;
@@ -28,9 +32,13 @@ public class CommonSteps {
         if (context.getUsersListPage() == null) {
             context.setUsersListPage(new UsersListPage(driver));
         }
-
-        // Use the shared page object
         this.usersListPage = context.getUsersListPage();
+
+        // Initialize DeleteUserPage only if not already done
+        if (context.getDeleteUserPage() == null) {
+            context.setDeleteUserPage(new DeleteUserPage(driver));
+        }
+        this.deleteUserPage = context.getDeleteUserPage();
 
         // Open the application
         usersListPage.openApplication();

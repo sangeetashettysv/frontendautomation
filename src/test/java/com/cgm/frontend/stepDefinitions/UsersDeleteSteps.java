@@ -1,8 +1,11 @@
 package com.cgm.frontend.stepDefinitions;
 
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertFalse;
 
 import com.cgm.frontend.pages.UsersListPage;
+import com.cgm.frontend.pages.DeleteUserPage;
+import com.cgm.frontend.stepDefinitions.UsersAddSteps;
 import com.cgm.frontend.utils.TestContext;
 
 import io.cucumber.java.en.When;
@@ -12,33 +15,81 @@ public class UsersDeleteSteps {
 
     private TestContext context;
     private UsersListPage usersListPage;
+    private DeleteUserPage deleteUserPage;
+    private UsersAddSteps addUserSteps;
 
-    // Constructor injection
-    public UsersDeleteSteps(TestContext context) {
+    public UsersDeleteSteps(TestContext context, UsersAddSteps addUserSteps) {
         this.context = context;
+        this.addUserSteps = addUserSteps;
 
-        // Get the shared UsersListPage from TestContext if already initialized
-        if (context.getUsersListPage() != null) {
-            this.usersListPage = context.getUsersListPage();
-        }
+        this.usersListPage = context.getUsersListPage();
+        this.deleteUserPage = context.getDeleteUserPage();
     }
 
-    @When("user clicks the delete action for a user")
-    public void user_clicks_the_delete_action_for_a_user() {
-        // Ensure the page object is available
-        if (this.usersListPage == null) {
-            this.usersListPage = context.getUsersListPage();
+    // ---------------- Positive and Negative Steps ----------------
+
+    @When("user creates a new user")
+    public void user_creates_a_new_user() {
+        addUserSteps.user_clicks_the_add_user_action();
+        addUserSteps.user_enters_valid_user_details();
+        addUserSteps.user_submits_the_add_user_form();
+
+        assertTrue(usersListPage.isUserPresentInList(context.getCreatedUserEmail()),
+                "Newly created user should appear in the users list");
+    }
+
+    @When("user clicks the delete action for the newly created user")
+    public void user_clicks_the_delete_action_for_the_newly_created_user() {
+        usersListPage.clickDeleteForUserByEmail(context.getCreatedUserEmail());
+
+        // Ensure DeleteUserPage is initialized
+        if (deleteUserPage == null) {
+            deleteUserPage = new DeleteUserPage(context.getDriver());
+            context.setDeleteUserPage(deleteUserPage);
         }
-        usersListPage.clickDeleteForFirstUser();
     }
 
     @Then("a delete confirmation dialog should be displayed")
     public void a_delete_confirmation_dialog_should_be_displayed() {
-        // Ensure the page object is available
-        if (this.usersListPage == null) {
-            this.usersListPage = context.getUsersListPage();
-        }
-        assertTrue(usersListPage.isDeleteConfirmationDialogDisplayed(),
+        assertTrue(deleteUserPage.isDialogDisplayed(),
                 "Expected delete confirmation dialog to be displayed");
+    }
+
+    @When("user confirms deletion")
+    public void user_confirms_deletion() {
+        deleteUserPage.confirmDeletion();
+    }
+
+    @When("user cancels deletion")
+    public void user_cancels_deletion() {
+        deleteUserPage.cancelDeletion();
+    }
+
+    @Then("the deleted user should no longer appear in the users list")
+    public void the_deleted_user_should_no_longer_appear_in_the_users_list() {
+        assertFalse(usersListPage.isUserPresentInList(context.getCreatedUserEmail()),
+                "Deleted user should no longer appear in the users list");
+    }
+
+    @Then("the user should still appear in the users list")
+    public void the_user_should_still_appear_in_the_users_list() {
+        //assertTrue(usersListPage.isUserPresentInList(context.getCreatedUserEmail()),
+        assertTrue(usersListPage.isUserPresentInList("a@a.com"),
+                "User should still be present in the users list after cancelling deletion");
+    }
+
+    @Then("a delete success message should be shown to the user")
+    public void a_delete_success_message_should_be_shown_to_the_user() {
+        assertTrue(deleteUserPage.wasDeleteSuccessToastDisplayed(),
+                "Expected success toast to appear after deleting user");
+    }
+
+    // ---------------- Debug / Failing Step ----------------
+
+    @Then("assert incorrectly that the user still appears in the users list")
+    public void assert_incorrectly_user_still_appears_in_users_list() {
+        // INTENTIONAL failure for debugging purposes
+        assertTrue(usersListPage.isUserPresentInList(context.getCreatedUserEmail()),
+                "INTENTIONAL FAILURE: This assertion is expected to fail");
     }
 }

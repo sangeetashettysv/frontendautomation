@@ -1,9 +1,9 @@
 package com.cgm.frontend.utils;
 
 import org.openqa.selenium.WebDriver;
-
 import com.cgm.frontend.pages.UsersListPage;
 import com.cgm.frontend.pages.AddUserPage;
+import com.cgm.frontend.pages.DeleteUserPage;
 
 public class TestContext {
 
@@ -12,10 +12,11 @@ public class TestContext {
     // Page Objects
     private UsersListPage usersListPage;
     private AddUserPage addUserPage;
+    private DeleteUserPage deleteUserPage;
 
     // Test Data
-    private String addUserSuccessMessage;
-    
+    private String createdUserEmail;
+
     // ---------- Driver ----------
     public WebDriver getDriver() {
         return driver;
@@ -25,8 +26,11 @@ public class TestContext {
         this.driver = driver;
     }
 
-    // ---------- Users List Page ----------
+    // ---------- UsersListPage ----------
     public UsersListPage getUsersListPage() {
+        if (usersListPage == null && driver != null) {
+            usersListPage = new UsersListPage(driver);
+        }
         return usersListPage;
     }
 
@@ -34,8 +38,11 @@ public class TestContext {
         this.usersListPage = usersListPage;
     }
 
-    // ---------- Add User Page ----------
+    // ---------- AddUserPage ----------
     public AddUserPage getAddUserPage() {
+        if (addUserPage == null && driver != null) {
+            addUserPage = new AddUserPage(driver);
+        }
         return addUserPage;
     }
 
@@ -43,8 +50,19 @@ public class TestContext {
         this.addUserPage = addUserPage;
     }
 
-    private String createdUserEmail;
+    // ---------- DeleteUserPage ----------
+    public DeleteUserPage getDeleteUserPage() {
+        if (deleteUserPage == null && driver != null) {
+            deleteUserPage = new DeleteUserPage(driver);
+        }
+        return deleteUserPage;
+    }
 
+    public void setDeleteUserPage(DeleteUserPage deleteUserPage) {
+        this.deleteUserPage = deleteUserPage;
+    }
+
+    // ---------- Created User Email ----------
     public String getCreatedUserEmail() {
         return createdUserEmail;
     }
@@ -53,20 +71,11 @@ public class TestContext {
         this.createdUserEmail = createdUserEmail;
     }
 
-    // ---------- Shared Data ----------
-    public String getAddUserSuccessMessage() {
-        return addUserSuccessMessage;
-    }
-
-    public void setLAddUserSuccessMessage(String addUserSuccessMessage) {
-        this.addUserSuccessMessage = addUserSuccessMessage;
-    }
-
-    // --------- Cleanup ---------- 
-
+    // ---------- Reset ----------
     public void reset() {
         usersListPage = null;
         addUserPage = null;
-        addUserSuccessMessage = null;
+        deleteUserPage = null;
+        createdUserEmail = null;
     }
 }
