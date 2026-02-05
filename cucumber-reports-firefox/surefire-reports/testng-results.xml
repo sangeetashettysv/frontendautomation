@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="17" passed="14" failed="3" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-02-05T22:08:55 UTC" name="Surefire suite" finished-at="2026-02-05T22:11:34 UTC" duration-ms="158959">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2026-02-05T22:08:55 UTC" name="Surefire test" finished-at="2026-02-05T22:11:34 UTC" duration-ms="158959">
+      <class name="com.cgm.frontend.runner.TestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:08:55 UTC" name="setUpClass" finished-at="2026-02-05T22:08:55 UTC" duration-ms="709" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@3c8dea0b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:08:55 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:09:04 UTC" duration-ms="8885" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-LIST-001 - Verify Users List page loads correctly"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Users List Page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:09:04 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:09:18 UTC" duration-ms="14071" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-LIST-001 - Verify Users List page loads correctly"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Users List Page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:09:18 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:09:23 UTC" duration-ms="4231" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-ADD-001 - Add User form is shown"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Add user to Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:09:23 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:09:32 UTC" duration-ms="9927" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-ADD-001 - Add User form is shown"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Add user to Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:09:32 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:09:36 UTC" duration-ms="3168" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-ADD-002 - Add button enabled for valid data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Add user to Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:09:36 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:09:45 UTC" duration-ms="9564" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-ADD-002 - Add button enabled for valid data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Add user to Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:09:45 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:09:48 UTC" duration-ms="2679" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-ADD-003 - Invalid email validation"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Add user to Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:09:48 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:09:58 UTC" duration-ms="10154" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-ADD-003 - Invalid email validation"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Add user to Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:09:58 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:10:01 UTC" duration-ms="3365" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-ADD-004 - Intentional failure for debugging"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Add user to Users List"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[INTENTIONAL FAILURE: Add button should NOT be enabled expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: INTENTIONAL FAILURE: Add button should NOT be enabled expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.cgm.frontend.stepDefinitions.UsersAddSteps.add_button_should_still_be_enabled(UsersAddSteps.java:108)
+at ✽.Add button should still be enabled(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_add.feature:49)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:10:01 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:10:11 UTC" duration-ms="9383" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-ADD-004 - Intentional failure for debugging"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Add user to Users List"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[INTENTIONAL FAILURE: Add button should NOT be enabled expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: INTENTIONAL FAILURE: Add button should NOT be enabled expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.cgm.frontend.stepDefinitions.UsersAddSteps.add_button_should_still_be_enabled(UsersAddSteps.java:108)
+at ✽.Add button should still be enabled(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_add.feature:49)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:10:11 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:10:14 UTC" duration-ms="2994" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-ADD-005 - Newly added user is visible in users list"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Add user to Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:10:14 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:10:24 UTC" duration-ms="10552" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-ADD-005 - Newly added user is visible in users list"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Add user to Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:10:24 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:10:40 UTC" duration-ms="15567" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-DEL-001 - Delete newly created user successfully"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Delete user from Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:10:40 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:11:01 UTC" duration-ms="21363" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-DEL-001 - Delete newly created user successfully"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Delete user from Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:11:01 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:11:06 UTC" duration-ms="5150" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-DEL-002 - Cancel deletion and verify user still exists"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Delete user from Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:11:06 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:11:18 UTC" duration-ms="11967" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-DEL-002 - Cancel deletion and verify user still exists"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Delete user from Users List"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:11:18 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-05T22:11:33 UTC" duration-ms="15064" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["REQ-UL-DEL-003 - Intentional failure to test debug methods"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Delete user from Users List"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[INTENTIONAL FAILURE: This assertion is expected to fail expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: INTENTIONAL FAILURE: This assertion is expected to fail expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.cgm.frontend.stepDefinitions.UsersDeleteSteps.assert_incorrectly_user_still_appears_in_users_list(UsersDeleteSteps.java:100)
+at ✽.assert incorrectly that the user still appears in the users list(file:///Users/runner/work/frontendautomation/frontendautomation/src/test/resources/features/users_delete.feature:46)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.cgm.frontend.runner.TestRunner@12d4bf7e]" started-at="2026-02-05T22:11:33 UTC" name="tearDownClass" finished-at="2026-02-05T22:11:34 UTC" duration-ms="67" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.cgm.frontend.runner.TestRunner -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

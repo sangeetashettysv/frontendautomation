@@ -1,0 +1,6 @@
+com/cgm/frontend/stepDefinitions/CommonSteps.class
+com/cgm/frontend/stepDefinitions/UsersAddSteps.class
+com/cgm/frontend/runner/TestRunner.class
+com/cgm/frontend/stepDefinitions/UsersListSteps.class
+com/cgm/frontend/stepDefinitions/Hooks.class
+com/cgm/frontend/stepDefinitions/UsersDeleteSteps.class

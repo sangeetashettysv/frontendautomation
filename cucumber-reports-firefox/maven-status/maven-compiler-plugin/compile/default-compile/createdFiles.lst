@@ -1,0 +1,8 @@
+com/cgm/frontend/utils/ConfigReader.class
+com/cgm/frontend/pages/AddUserPage.class
+com/cgm/frontend/utils/DriverManager.class
+com/cgm/frontend/pages/BasePage.class
+com/cgm/frontend/pages/UsersListPage.class
+com/cgm/frontend/pages/DeleteUserPage.class
+com/cgm/frontend/utils/TestContext.class
+com/cgm/frontend/pages/HomePage.class
