@@ -29,3 +29,4 @@ This is a Selenium + TestNG + Cucumber BDD automation project for a frontend app
 **Test Reports**
 
 - After execution, open the HTML report: target/cucumber-reports.html in your browser to view the test results.
+<!--  -->
