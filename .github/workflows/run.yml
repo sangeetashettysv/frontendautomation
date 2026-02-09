@@ -1,6 +1,7 @@
 name: Run Frontend Automation Tests
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
