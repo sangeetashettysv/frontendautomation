@@ -61,4 +61,4 @@ As an admin, I want to delete a user from the system so that inactive or invalid
 ## Traceability
 
 - Requirement `REQ-UL-DEL-001` → Test Cases: `TC-DEL-001`, `TC-DEL-002`, `TC-DEL-003`  
-- Automated tests will use these IDs in the code for traceability and reporting.
+- Automated test can use this ID for traceability and reporting.

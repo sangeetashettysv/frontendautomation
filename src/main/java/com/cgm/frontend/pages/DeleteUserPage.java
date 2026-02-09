@@ -27,7 +27,7 @@ public class DeleteUserPage extends BasePage {
 
     // --- Methods ---
 
-    // Check if the delete dialog is displayed
+    // Check if the delete popup is displayed
     public boolean isDialogDisplayed() {
         waitForVisibility(modalDialog);
         return driver.findElement(modalDialog).isDisplayed();
@@ -81,7 +81,6 @@ public class DeleteUserPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(deleteSuccessToast));
     }
-
 
     // Check if success toast appeared
     public boolean wasDeleteSuccessToastDisplayed() {

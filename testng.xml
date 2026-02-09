@@ -13,11 +13,4 @@
             <class name="com.cgm.frontend.runner.TestRunner"/>
         </classes>
     </test>
-
-    <test name="SafariTest">
-        <parameter name="browser" value="safari"/>
-        <classes>
-            <class name="com.cgm.frontend.runner.TestRunner"/>
-        </classes>
-    </test>
 </suite>

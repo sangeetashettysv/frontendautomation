@@ -5,7 +5,7 @@ Feature: Delete user from Users List
   So that inactive or invalid users can be removed from the system
 
   # ---------------- Positive Tests ----------------
-  @req-UL-DEL-001 @usersList @positive
+  @req-UL-DEL-001 @deleteuser @positive
   Scenario Outline: REQ-UL-DEL-001 - Delete newly created user successfully
     Given user opens the application on "<browser>"
     When user creates a new user
@@ -18,10 +18,10 @@ Feature: Delete user from Users List
     Examples:
       | browser  |
       | chrome   |
-      | firefox |
+      | firefox  |
 
   # ---------------- Negative / Cancel Tests ----------------
-  @req-UL-DEL-002 @usersList @negative
+  @req-UL-DEL-002 @deleteuser @negative
   Scenario Outline: REQ-UL-DEL-002 - Cancel deletion and verify user still exists
     Given user opens the application on "<browser>"
     When user creates a new user
@@ -33,11 +33,11 @@ Feature: Delete user from Users List
     Examples:
       | browser  |
       | chrome   |
-      | firefox |
+      | firefox  |
 
   # ---------------- Debug / Failing Test ----------------
-  @req-UL-DEL-003 @usersList @debug
-  Scenario Outline: REQ-UL-DEL-003 - Intentional failure to test debug methods
+  @req-UL-DEL-003 @deleteuser @debug
+  Scenario Outline: REQ-UL-DEL-003 - Intentional fail the test
     Given user opens the application on "<browser>"
     When user creates a new user
     And user clicks the delete action for the newly created user
@@ -48,3 +48,4 @@ Feature: Delete user from Users List
     Examples:
       | browser  |
       | chrome   |
+      | firefox  |

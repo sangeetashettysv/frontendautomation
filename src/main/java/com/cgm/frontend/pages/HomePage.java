@@ -9,18 +9,17 @@ public class HomePage extends BasePage{
 
     // Constructor
     public HomePage(WebDriver driver) {
-        super(driver); // pass driver to BasePage
+        super(driver); 
         PageFactory.initElements(driver, this);
     }
 
     // Open application
     public void openApplication() {
-    // Directly use getEnvironmentUrl() which internally handles the environment
-    String url = ConfigReader.getEnvironmentUrl();
-    if (url == null || url.isEmpty()) {
-        throw new RuntimeException("Base URL not found in config.properties!");
-    }
-    driver.get(url);
+        String url = ConfigReader.getEnvironmentUrl();
+        if (url == null || url.isEmpty()) {
+            throw new RuntimeException("Base URL not found in config.properties!");
+        }
+        driver.get(url);
     }
 
     // Action: get page title

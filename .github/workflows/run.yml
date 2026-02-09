@@ -4,18 +4,16 @@ on:
   push:
     branches:
       - main
-      - master
   pull_request:
     branches:
       - main
-      - master
 
 jobs:
   test:
     runs-on: macos-latest
     strategy:
       matrix:
-        browser: [chrome, firefox, safari]
+        browser: [chrome, firefox]
 
     steps:
       - name: Checkout code
@@ -46,17 +44,3 @@ jobs:
         with:
           name: cucumber-html-report-${{ matrix.browser }}
           path: target/cucumber-reports.html
-
-      - name: Upload Surefire Reports
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: surefire-reports-${{ matrix.browser }}
-          path: target/surefire-reports
-
-      - name: Add report info to summary
-        if: always()
-        run: |
-          echo "### Browser: ${{ matrix.browser }}" >> $GITHUB_STEP_SUMMARY
-          echo "Cucumber report artifact: cucumber-html-report-${{ matrix.browser }}" >> $GITHUB_STEP_SUMMARY
-          echo "Surefire reports artifact: surefire-reports-${{ matrix.browser }}" >> $GITHUB_STEP_SUMMARY

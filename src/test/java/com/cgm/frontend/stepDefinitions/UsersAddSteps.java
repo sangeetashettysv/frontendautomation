@@ -40,26 +40,26 @@ public class UsersAddSteps {
 
     @When("user enters valid user details")
     public void user_enters_valid_user_details() {
-        String email = "john@doe.com";
-        addUserPage.fillName("John Doe");
-        addUserPage.fillUsername("johndoe");
-        addUserPage.fillEmail("john@doe.com");
+        String email = "test@user.com";
+        addUserPage.fillName("Test User");
+        addUserPage.fillUsername("testuser");
+        addUserPage.fillEmail("test@user.com");
         addUserPage.fillPhone("9812345678");
-        addUserPage.fillWebsite("https://johndoe.com");
+        addUserPage.fillWebsite("https://testuser.com");
         context.setCreatedUserEmail(email);
     }
 
     @When("user enters invalid email")
     public void user_enters_invalid_email() {
-        addUserPage.fillName("John Doe");
-        addUserPage.fillUsername("johndoe");
-        addUserPage.fillEmail("a"); // invalid on purpose
+        addUserPage.fillName("Test User");
+        addUserPage.fillUsername("testuser");
+        addUserPage.fillEmail("test"); 
     }
 
     @When("user enters invalid phone number")
     public void user_enters_invalid_phone_number() {
-        addUserPage.fillEmail("john@doe.com");
-        addUserPage.fillPhone("123"); // invalid
+        addUserPage.fillEmail("test@user.com");
+        addUserPage.fillPhone("123"); 
     }
 
     @When("user submits the Add User form")
@@ -101,10 +101,9 @@ public class UsersAddSteps {
                 "Phone validation error should be displayed");
     }
 
-    // ❌ INTENTIONALLY FAILING TEST (for debugging practice)
+    // Fail test intentinally
     @Then("Add button should still be enabled")
     public void add_button_should_still_be_enabled() {
-        // This is intentionally wrong – button SHOULD be disabled
         assertTrue(addUserPage.isAddButtonEnabled(),
                 "INTENTIONAL FAILURE: Add button should NOT be enabled");
     }

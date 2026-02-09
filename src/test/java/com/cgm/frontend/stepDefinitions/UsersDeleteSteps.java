@@ -44,7 +44,7 @@ public class UsersDeleteSteps {
     public void user_clicks_the_delete_action_for_the_newly_created_user() {
         usersListPage.clickDeleteForUserByEmail(context.getCreatedUserEmail());
 
-        // Ensure DeleteUserPage is initialized
+        // DeleteUserPage is initialized
         if (deleteUserPage == null) {
             deleteUserPage = new DeleteUserPage(context.getDriver());
             context.setDeleteUserPage(deleteUserPage);
@@ -61,7 +61,7 @@ public class UsersDeleteSteps {
     public void user_confirms_deletion() {
         deleteUserPage.confirmDeletion();
 
-        // Wait for modal to close, row to disappear, and toast to appear
+        // Wait for popup to close, row to disappear, and toast to appear
         deleteUserPage.waitForModalToClose();
         deleteUserPage.waitForUserToBeDeleted(context.getCreatedUserEmail());
         // deleteUserPage.waitForDeleteSuccessToast();
@@ -96,7 +96,7 @@ public class UsersDeleteSteps {
 
     @Then("assert incorrectly that the user still appears in the users list")
     public void assert_incorrectly_user_still_appears_in_users_list() {
-        // INTENTIONAL failure for debugging purposes
+        // Fail test intentionally
         assertTrue(usersListPage.isUserPresentInList(context.getCreatedUserEmail()),
                 "INTENTIONAL FAILURE: This assertion is expected to fail");
     }

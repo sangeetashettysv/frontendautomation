@@ -123,7 +123,7 @@ public class AddUserPage extends BasePage {
                 return driver.findElement(successMessage).getText();
             }
         } catch (Exception e) {
-            return ""; // toast did not appear or disappeared too fast
+            return "";
         }
         return "";
     }

@@ -52,4 +52,4 @@ As an admin, I want to add a new user to the system so that new users can be man
 ## Traceability
 
 - Requirement `REQ-UL-ADD-001` → Test Cases: `TC-ADD-001`, `TC-ADD-002`, `TC-ADD-003`  
-- Automated tests will use these IDs in the code for traceability and reporting.
+- Automated test can use this ID for traceability and reporting.

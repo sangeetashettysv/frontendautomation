@@ -8,11 +8,24 @@ This is a Selenium + TestNG + Cucumber BDD automation project for a frontend app
 
 1. Clone the repository.
 2. Install [Java 23](https://www.oracle.com/java/technologies/) and Maven.
-3. Download the required WebDriver binaries (ChromeDriver, GeckoDriver, etc.) and ensure they are in your PATH.
 
-## Running Tests
+# Running Tests Locally
 
-Run the following command from the project root:
+1. Clone the repository
 
-```bash
-mvn clean test
+- git clone <your-github-repo-url>
+- cd ApiAutomation
+
+2. Run all tests
+- Run the following command from the project root:
+- mvn clean test
+
+3. Run only Add User tests:
+- mvn clean test -Dcucumber.filter.tags="@adduser"
+
+4. Run only Delete User tests:
+- mvn clean test -Dcucumber.filter.tags="@deleteuser"
+
+**Test Reports**
+
+- After execution, open the HTML report: target/cucumber-reports.html in your browser to view the test results.

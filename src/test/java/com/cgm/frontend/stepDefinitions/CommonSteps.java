@@ -21,20 +21,20 @@ public class CommonSteps {
 
     @Given("user opens the application on {string}")
     public void user_opens_the_application_on(String browser) {
-        // Initialize WebDriver only if not already done
+        // Initialize WebDriver
         WebDriver driver = context.getDriver();
         if (driver == null) {
             driver = DriverManager.getDriver(browser);
             context.setDriver(driver);
         }
 
-        // Initialize UsersListPage only if not already done
+        // Initialize UsersListPage
         if (context.getUsersListPage() == null) {
             context.setUsersListPage(new UsersListPage(driver));
         }
         this.usersListPage = context.getUsersListPage();
 
-        // Initialize DeleteUserPage only if not already done
+        // Initialize DeleteUserPage
         if (context.getDeleteUserPage() == null) {
             context.setDeleteUserPage(new DeleteUserPage(driver));
         }
